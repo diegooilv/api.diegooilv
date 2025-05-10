@@ -1,11 +1,12 @@
 import app from "./app.js";
-import { conectarDB } from "./config/db.js";
+import { conectarMongoDB, conectarPostgreSQL } from "./config/db.js";
 import dotenv from "dotenv";
 dotenv.config();
 
 const startServer = async () => {
   try {
-    await conectarDB();
+    await conectarMongoDB();
+    await conectarPostgreSQL();
     console.log("Banco de dados conectado com sucesso!");
     const port = process.env.PORT || 3000;
     app.listen(port, () => {

@@ -1,4 +1,4 @@
-import user from "../models/user.js";
+import user from "../models/mongo/user.js";
 
 // Função para pegar todos os usuários
 export async function getUsers() {
