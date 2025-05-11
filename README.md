@@ -5,3 +5,6 @@ API RESTful desenvolvida com Express.js e JWT para autenticação.
 ## 📚 Documentação
 
 - [Endpoints da Aplicação (`/app`)](docs/app.md)
+
+--- 
+> [https://hoppscotch.io/](https://hoppscotch.io/)
