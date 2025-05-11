@@ -5,7 +5,7 @@ import { drizzle } from "drizzle-orm/node-postgres";
 
 dotenv.config();
 
-let mdb = null; // Drizzle DB global
+let db = null; // Drizzle DB global
 
 // MongoDB
 const conectarMongoDB = async () => {
@@ -32,9 +32,9 @@ const conectarPostgreSQL = () => {
     ssl: { rejectUnauthorized: false },
   });
 
-  mdb = drizzle(pool);
+  db = drizzle(pool);
   console.log("🟢 Conectado ao PostgreSQL!");
 };
 
 // Exporta as conexões e o `db`
-export { conectarMongoDB, conectarPostgreSQL, mdb };
+export { conectarMongoDB, conectarPostgreSQL, db };
