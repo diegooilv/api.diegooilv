@@ -6,7 +6,7 @@ dotenv.config();
 const startServer = async () => {
   try {
     await conectarMongoDB();
-    await conectarPostgreSQL();
+    conectarPostgreSQL();
     console.log("Banco de dados conectado com sucesso!");
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
