@@ -1,6 +1,6 @@
 // import.js
 import mongoose from "mongoose";
-import Type from "../models/type.js";
+import Pokemon from "./models/Pokemon.js";
 import fs from "fs";
 import dotenv from "dotenv";
 dotenv.config();
@@ -13,11 +13,17 @@ await mongoose.connect(uri, {
 });
 
 // Carregando o JSON
-const data = JSON.parse(fs.readFileSync("../json/types.json", "utf-8"));
+const data = JSON.parse(fs.readFileSync("./json/pokemons.json", "utf-8"));
+
+// Renomeando `id` para `_id`
+const pokemons = data.map((pokemon) => {
+  const { id, ...resto } = pokemon;
+  return { _id: id, ...resto };
+});
 
 try {
-  await Type.insertMany(data);
-  console.log("Types inseridos com sucesso!");
+  await Pokemon.insertMany(pokemons);
+  console.log("Pokémons inseridos com sucesso!");
 } catch (err) {
   console.error("Erro ao inserir:", err);
 }

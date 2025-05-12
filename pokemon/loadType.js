@@ -1,6 +1,6 @@
 // import.js
 import mongoose from "mongoose";
-import Move from "../models/move.js";
+import Type from "./models/type.js";
 import fs from "fs";
 import dotenv from "dotenv";
 dotenv.config();
@@ -13,11 +13,11 @@ await mongoose.connect(uri, {
 });
 
 // Carregando o JSON
-const data = JSON.parse(fs.readFileSync("../json/moves.json", "utf-8"));
+const data = JSON.parse(fs.readFileSync("./json/types.json", "utf-8"));
 
 try {
-  await Move.insertMany(data);
-  console.log("Moves inseridos com sucesso!");
+  await Type.insertMany(data);
+  console.log("Types inseridos com sucesso!");
 } catch (err) {
   console.error("Erro ao inserir:", err);
 }

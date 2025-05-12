@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const MoveSchema = new Schema({
-  id: { type: Number, required: true },
+  _id: { type: Number, required: true },
   accuracy: { type: Number },
   category: { type: String },
   cname: { type: String }, // Nome em chinês

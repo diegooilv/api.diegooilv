@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const PokemonSchema = new mongoose.Schema(
   {
-    id: {
+    _id: {
       type: Number,
       required: true,
       unique: true,
