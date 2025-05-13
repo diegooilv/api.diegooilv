@@ -1,18 +1,21 @@
 import { Router } from "express";
-
+import { validateParams } from "../middlewares/validateParams.js";
+import {
+  getPokemonByIdController,
+  getPokemonByNameController,
+} from "../controllers/pokemon.js";
 const router = Router();
 
 // Por params
-router.get("/pokemon/id/:id");
-router.get("/pokemon/name/:name");
-router.get("/type/id/id:");
-router.get("/type/name/:name");
-router.get("/move/id/id:");
-router.get("/move/name/:name");
-router.get("/item/id/:id");
-router.get("item/name/:name");
+router.get("/pokemon/id/:id", validateParams(["id"]), getPokemonByIdController);
+router.get(
+  "/pokemon/name/:name",
+  validateParams(["name"]),
+  getPokemonByNameController
+);
 
-// Por querys.
-router.get("/pokemon");
+router.get("/", (req, res) => {
+  res.status(200).send("Request successful");
+});
 
 export default router;

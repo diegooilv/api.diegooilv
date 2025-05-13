@@ -5,7 +5,6 @@ const PokemonSchema = new mongoose.Schema(
     _id: {
       type: Number,
       required: true,
-      unique: true,
     },
     name: {
       english: {
