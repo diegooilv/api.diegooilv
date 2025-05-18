@@ -1,4 +1,5 @@
 import pokemon from "../models/mongo/pokemon.js";
+import Type from "../models/mongo/type.js";
 
 export async function getPokemonById(id) {
   const response = await pokemon.findById(Number(id));
@@ -25,4 +26,26 @@ export async function getPokemonByName(name) {
   }
 
   return response.length > 0 ? response : null;
+}
+
+export async function getTypeByName(name) {
+  const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+
+  let response = await Type.find({ english: formattedName }).select(
+    "-_id -__v"
+  );
+
+  if (response.length === 0) {
+    response = await pokemon
+      .find({
+        $or: [
+          { japanese: formattedName },
+          { chinese: formattedName },
+          { french: formattedName },
+        ],
+      })
+      .select("-_id -__v");
+  }
+
+  return response.length > 0 ? response[0] : null;
 }

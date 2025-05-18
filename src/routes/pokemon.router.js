@@ -3,6 +3,7 @@ import { validateParams } from "../middlewares/validateParams.js";
 import {
   getPokemonByIdController,
   getPokemonByNameController,
+  getTypeByNameController,
 } from "../controllers/pokemon.js";
 const router = Router();
 
@@ -13,9 +14,18 @@ router.get(
   validateParams(["name"]),
   getPokemonByNameController
 );
+//
+
+router.get(
+  "/type/name/:name",
+  validateParams(["name"]),
+  getTypeByNameController
+);
+//
 
 router.get("/", (req, res) => {
   res.status(200).send("Request successful");
 });
+//
 
 export default router;
