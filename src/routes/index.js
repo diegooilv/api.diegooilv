@@ -4,6 +4,7 @@ import appRouter from "./app.router.js";
 import testeRouter from "./teste.router.js";
 import pokemonRouter from "./pokemon.router.js";
 import climaRouter from "./clima.router.js";
+import userJavaRouter from "./userJava.router.js";
 
 const router = Router();
 
@@ -12,5 +13,6 @@ router.use("/users", usersRouter);
 router.use("/app", appRouter);
 router.use("/dex", pokemonRouter);
 router.use("/clima", climaRouter);
+router.use("/userJava", userJavaRouter);
 
 export default router;

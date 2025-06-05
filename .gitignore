@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Ignorar arquivos .java (código-fonte)
+*.java
+
+# Ignorar arquivos compilados .class
+*.class
