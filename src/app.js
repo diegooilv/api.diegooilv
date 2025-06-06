@@ -15,7 +15,7 @@ app.use(helmet());
 // Rate Limiting para evitar ataques de força bruta
 const limiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutos
-  max: 5000, // Limite de 10 requisições por IP
+  max: 100, // Limite de 10 requisições por IP
   message:
     "Muitas requisições feitas de seu IP. Tente novamente depois de 5 minutos.",
 });
