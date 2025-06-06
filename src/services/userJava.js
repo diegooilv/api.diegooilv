@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 
 export const getAllUsers = async () => {
   try {
-    const resultado = await db.select().from(users);
+    const resultado = await db.select().from(users).orderBy("id", "asc");
     return resultado;
   } catch (erro) {
     console.error("Erro", erro);
