@@ -6,7 +6,7 @@ import bcrypt from "bcrypt";
 export const getAllUsers = async () => {
   try {
     const resultado = await db.select().from(users).orderBy("id", "asc");
-    return { status: 200, data: resultado };
+    return { status: 200, resultado };
   } catch (erro) {
     console.error("Erro", erro);
     return { status: 500, message: "Erro interno ao buscar usuários" };

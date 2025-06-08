@@ -2,7 +2,7 @@ import { getAllUsers, createUser, updateUser, loginUser } from "../services/pess
 
 export const getAllUsersController = async (req, res, next) => {
   const resultado = await getAllUsers();
-  return res.status(resultado.status).json(resultado);
+  return res.status(resultado.status).json(resultado.resultado);
 };
 
 export const createUserController = async (req, res, next) => {
