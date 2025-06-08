@@ -29,7 +29,7 @@ export function setupWebSocket(server) {
             intervalId = setInterval(async () => {
               try {
                 const response = await getAllUsers();
-                ws.send(JSON.stringify({ type: "PessoaJava", data: response }));
+                ws.send(JSON.stringify({ type: "PessoaJava", data: response.resultado }));
                 console.log("Enviado dados PessoaJava para o cliente");
               } catch (err) {
                 console.error("Erro ao enviar dados periódicos:", err);
