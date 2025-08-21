@@ -6,6 +6,7 @@ import pokemonRouter from "./pokemon.router.js";
 import climaRouter from "./clima.router.js";
 import userJavaRouter from "./userJava.router.js";
 import pessoaJavaRouter from "./pessoaJava.router.js";
+import iaRouter from "./ia.router.js";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use("/dex", pokemonRouter);
 router.use("/clima", climaRouter);
 router.use("/userJava", userJavaRouter);
 router.use("/pessoaJava", pessoaJavaRouter);
+router.use("/ia", iaRouter);
 
 export default router;
