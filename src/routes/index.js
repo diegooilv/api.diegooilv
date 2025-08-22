@@ -7,6 +7,7 @@ import climaRouter from "./clima.router.js";
 import userJavaRouter from "./userJava.router.js";
 import pessoaJavaRouter from "./pessoaJava.router.js";
 import iaRouter from "./ia.router.js";
+import iaGroqRouter from "./iaGroq.router.js";
 
 const router = Router();
 
@@ -18,5 +19,6 @@ router.use("/clima", climaRouter);
 router.use("/userJava", userJavaRouter);
 router.use("/pessoaJava", pessoaJavaRouter);
 router.use("/ia", iaRouter);
+router.use("/groq", iaGroqRouter);
 
 export default router;
